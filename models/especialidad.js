@@ -1,6 +1,6 @@
 "use strict";
-const { Model } = require("sequelize");
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require("sequelize");
+module.exports = (sequelize) => {
   class Especialidad extends Model {
     static associate(models) {
       this.belongsTo(models.Usuarios, { foreignKey: "usuarios_id" });
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Especialidad",
-      tableName: "especialidad", // Opcional, en caso de que uses un nombre diferente en la base de datos
+      tableName: "especialidad", 
       timestamps: true, // Para incluir campos createdAt y updatedAt
     }
   );

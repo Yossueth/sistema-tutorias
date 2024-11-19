@@ -2,32 +2,46 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Especialidads", {
+    await queryInterface.createTable("Valoraciones", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nombre_especialidad: {
+      calificacion: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      comentario: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      fecha_valoracion: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      usuario_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Usuarios',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal(
-          "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-        ),
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Especialidads");
+    await queryInterface.dropTable("Valoraciones");
   },
 };

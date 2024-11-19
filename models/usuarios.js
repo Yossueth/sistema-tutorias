@@ -1,13 +1,16 @@
 "use strict";
 
-const { Model } = require("sequelize");
+const { Model,  DataTypes} = require("sequelize");
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize) => {
   class Usuarios extends Model {
     static associate(models) {
       this.belongsTo(models.Roles, { foreignKey: "rol_id" });
       this.belongsTo(models.Especialidades, { foreignKey: "especialidad_id" });
+
+
       this.hasOne(models.Perfiles, { foreignKey: "usuario_id" });
+
       this.hasMany(models.Cursos, { foreignKey: "usuario_id" });
       this.hasMany(models.Pagos, { foreignKey: "usuario_id" });
       this.hasMany(models.Solicitudes, { foreignKey: "usuario_id" });
@@ -68,7 +71,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: "Especialidades", // Tabla relacionada
+          model: "Especialidad", // Tabla relacionada
           key: "id",
         },
       },

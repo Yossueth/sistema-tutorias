@@ -32,10 +32,22 @@ module.exports = {
       rol_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Roles",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       especialidad_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Especialidad",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

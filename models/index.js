@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const sequelize = require(" .. /db/db"); // Usar la conexión existente
+// const sequelize = require(" .. /db/db"); // Usar la conexión existente
 const basename = path.basename(filename);
 const db = {};
 

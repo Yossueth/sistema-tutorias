@@ -20,18 +20,42 @@ module.exports = {
       categoria_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Categorias",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Usuarios",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       solicitud_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Solicitudes",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       valoraciones_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Valoraciones",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

@@ -20,10 +20,22 @@ module.exports = {
       usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Usuarios',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       curso_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Cursos',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
