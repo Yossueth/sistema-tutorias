@@ -1,6 +1,15 @@
 const express = require("express");
 const { sequelize } = require("./models"); // Importa la conexión a la base de datos
-const productosRoutes = require("./routes/productRoutes"); // Importa las rutas de productos
+const categorias_routes = require("./routes/categorias_routes"); // Importa las rutas de productos
+const cursos_routes = require("./routes/cursos_routes");
+const especialidad_routes = require("./routes/categoriaespecialidad_routess_routes");
+const pagos_routes = require("./routes/pagos_routes");
+const perfiles_routes = require("./routes/perfiles_routes");
+const roles_routes = require("./routes/roles_routes");
+const sesion_routes = require("./routes/sesion_routes");
+const solicitudes_routes = require("./routes/solicitudes_routes");
+const usuarios_routes = require("./routes/usuarios_routes");
+const valoraciones_routes = require("./routes/valoraciones_routes");
 
 const app = express();
 const PORT = 3000;
@@ -16,7 +25,16 @@ sequelize
   );
 
 // Usar las rutas de productos
-app.use("/productos", productosRoutes);
+app.use("/categorias", categorias_routes);
+app.use("/cursos", cursos_routes);
+app.use("/especialidad", especialidad_routes);
+app.use("/pagos", pagos_routes);
+app.use("/perfiles", perfiles_routes);
+app.use("/roles", roles_routes);
+app.use("/sesion", sesion_routes);
+app.use("/solicitudes", solicitudes_routes);
+app.use("/usuarios", usuarios_routes);
+app.use("/valoraciones", valoraciones_routes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
