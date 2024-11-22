@@ -2,7 +2,7 @@ const express = require("express");
 const { sequelize } = require("./models"); // Importa la conexión a la base de datos
 const categorias_routes = require("./routes/categorias_routes"); // Importa las rutas de productos
 const cursos_routes = require("./routes/cursos_routes");
-const especialidad_routes = require("./routes/categoriaespecialidad_routess_routes");
+const especialidad_routes = require("./routes/especialidad_routes");
 const pagos_routes = require("./routes/pagos_routes");
 const perfiles_routes = require("./routes/perfiles_routes");
 const roles_routes = require("./routes/roles_routes");
@@ -10,6 +10,7 @@ const sesion_routes = require("./routes/sesion_routes");
 const solicitudes_routes = require("./routes/solicitudes_routes");
 const usuarios_routes = require("./routes/usuarios_routes");
 const valoraciones_routes = require("./routes/valoraciones_routes");
+const authRoutes = require("./Routes/authRoutes");
 
 const app = express();
 const PORT = 3000;
@@ -24,7 +25,8 @@ sequelize
     console.error("No se pudo conectar a la base de datos:", error)
   );
 
-// Usar las rutas de productos
+app.use("/auth", authRoutes);
+
 app.use("/categorias", categorias_routes);
 app.use("/cursos", cursos_routes);
 app.use("/especialidad", especialidad_routes);

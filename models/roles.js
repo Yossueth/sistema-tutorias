@@ -1,12 +1,12 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
-  class roles extends Model {
+  class Roles extends Model {
     static associate(models) {
       this.hasMany(models.Usuarios, { foreignKey: "rol_id" });
     }
   }
-  roles.init(
+  Roles.init(
     {
       admin: {
         type: DataTypes.STRING,
@@ -23,8 +23,8 @@ module.exports = (sequelize) => {
     },
     {
       sequelize,
-      modelName: "roles",
+      modelName: "Roles",
     }
   );
-  return roles;
+  return Roles;
 };

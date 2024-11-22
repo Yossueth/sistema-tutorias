@@ -41,9 +41,9 @@ module.exports = {
       },
       especialidad_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
-          model: "Especialidad",
+          model: "Especialidades",
           key: "id",
         },
         onUpdate: "CASCADE",

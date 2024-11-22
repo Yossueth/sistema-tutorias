@@ -3,7 +3,7 @@ const { Model, DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   class Especialidad extends Model {
     static associate(models) {
-      this.belongsTo(models.Usuarios, { foreignKey: "usuarios_id" });
+      this.hasOne(models.Usuarios, { foreignKey: "especialidad_id" });
     }
   }
   Especialidad.init(
@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
     {
       sequelize,
       modelName: "Especialidad",
-      tableName: "especialidad", 
+      tableName: "especialidades", 
       timestamps: true, // Para incluir campos createdAt y updatedAt
     }
   );

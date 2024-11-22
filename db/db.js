@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('proyectos', 'thylink', 'Irknox!15', {
-host: '192.168.100.242',
+const sequelize = new Sequelize('tutorias', 'root', 'Root123', {
+host: '127.0.0.1',
 dialect: 'mysql',
 });
 

@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   class Usuarios extends Model {
     static associate(models) {
       this.belongsTo(models.Roles, { foreignKey: "rol_id" });
-      this.belongsTo(models.Especialidades, { foreignKey: "especialidad_id" });
+      this.belongsTo(models.Especialidad, { foreignKey: "especialidad_id" });
 
 
       this.hasOne(models.Perfiles, { foreignKey: "usuario_id" });
@@ -69,9 +69,9 @@ module.exports = (sequelize) => {
       },
       especialidad_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
-          model: "Especialidad", // Tabla relacionada
+          model: "Especialidades", // Tabla relacionada
           key: "id",
         },
       },
